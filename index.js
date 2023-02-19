@@ -7,7 +7,6 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3001;
 
-
 const auth = require('./routes/auth');
 const blogs = require('./routes/blogs');
 // const users = require('./routes/users');

@@ -5,33 +5,6 @@ const bcrypt = require('bcrypt')
 
 
 
-
-// register
-router.post('/register', async(req, res) => {
-
-    try{  
-        const salt = await bcrypt.genSalt(10);
-        const hashedPass = await bcrypt.hash(req.body.password, salt);
-
-        const newUser = new User({
-            email : req.body.email,
-            password : hashedPass
-        })
-
-        const user = await newUser.save();
-        user && res.send(user);
-    }
-    catch(exc){
-        res.send(exc.message);
-    }
-
-})
-
-
-
-
-
-
 // login
 router.post('/login', async(req, res) => {
 
